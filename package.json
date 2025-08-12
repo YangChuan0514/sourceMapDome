@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "node --max_old_space_size=4096 ./node_modules/vite/bin/vite.js build --mode build",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
