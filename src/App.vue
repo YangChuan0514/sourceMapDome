@@ -5,7 +5,7 @@ onMounted(() => {
   if(list.length > 1){
     console.log('hello vue')
   }
-}),
+})
 </script>
 
 <template>
