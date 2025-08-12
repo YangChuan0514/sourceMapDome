@@ -1,21 +1,31 @@
-name: todolist 自动部署
+name: sourceMapDome
 on:
-  bush:
+  push:
     branches:
       - main
 jobs:
-  build-and-deploy:
+  CD:
     runs-on: ubuntu-latest
     steps:
-      - uses: Checkout
-      - uses: actions/checkout@v3
+       # 拉取代码
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      # 下载Node
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "24.x"
+      - name: Installing Dependencies
+        run: npm install
 
       - name: Instail and Build
-        run:
-         npm install
-         npm run build
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
       - name: Deploy
-        uses: peaceiris/actions-main@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DEPLOY_SECRET }}
           BRANCH: main
