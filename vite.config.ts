@@ -16,7 +16,6 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      // https://cn.rollupjs.org/configuration-options/
     },
   },
 })
