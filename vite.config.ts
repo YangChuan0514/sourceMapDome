@@ -16,4 +16,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  build: {
+    rollupOptions: {
+      // https://cn.rollupjs.org/configuration-options/
+    },
+  },
 })
