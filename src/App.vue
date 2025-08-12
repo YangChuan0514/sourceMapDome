@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted } from 'vue'
+onMounted(() => {
+  let list = null;
+  if(list.length > 1){
+    console.log('hello vue')
+  }
+}),
+</script>
 
 <template>
   <h1>You did it!</h1>
