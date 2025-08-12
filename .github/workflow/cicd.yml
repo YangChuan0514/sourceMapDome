@@ -4,18 +4,19 @@ on:
     branches:
       - main
 jobs:
-  CD:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-       # 拉取代码
-      - uses: actions/checkout@v2
-      # 下载Node
-      - uses: pnpm/actions-setup@v3
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: "24.x"
+          version: 8.6.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 24.X
       - run: npm install
       - run: npm run build
-      - name: Deploy
+      - name: action-Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DEPLOY_SECRET }}
